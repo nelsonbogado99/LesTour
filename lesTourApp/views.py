@@ -9,5 +9,10 @@ def index(request):
 def registerCustomer(request):
     return render(request, "pages/registerCustomer.html", {"form":forms.RegisterCustomerForm()})
 
+#pagina de registro de nuevos trabajadores
 def  registerEmployes(request):
     return render(request,"pages/registerEmployes.html",{"form":forms.RegisterEmployesForm()})
+
+#pagina de registro de nuevos hoteles
+def  registerHotel(request):
+    return render(request,"pages/registerHotel.html",{"form":forms.RegisterHotelForm()})
