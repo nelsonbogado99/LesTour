@@ -53,12 +53,15 @@ class Reservas(models.Model):
 #tabla para registrar las areas o departamentos dentro del hotel
 class Areas(models.Model):
     nombre=models.CharField(max_length=100)
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar los cargos que se encuentran en cada area
 class Cargo(models.Model):
     nombre=models.CharField(max_length=100)
     id_area=models.ForeignKey(Areas, on_delete=models.CASCADE)
 
+#tabla para registrar los puestos abiertos con las personas a cargo
 class Puesto_Trabajo(models.Model):
     nombre=models.CharField(max_length=100)
     id_empleado=models.ForeignKey(Empleados, on_delete=models.CASCADE)
