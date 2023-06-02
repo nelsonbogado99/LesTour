@@ -7,6 +7,8 @@ class Empleados(models.Model):
     email=models.CharField(max_length=100)
     direccion=models.CharField(max_length=100)
     telefono=models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar clientes
 class Clientes(models.Model):
@@ -15,6 +17,8 @@ class Clientes(models.Model):
     email=models.CharField(max_length=100)
     direccion=models.CharField(max_length=100)
     telefono=models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar hoteles
 class Hoteles(models.Model):
@@ -26,12 +30,16 @@ class Hoteles(models.Model):
     email=models.CharField(max_length=100)
     pisos=models.IntegerField()
     habitaciones=models.IntegerField()
+    def __str__(self):
+        return self.nombre
     
 #tabla para registrar los tipos de habitaciones
 class Tipo_Habitacion(models.Model):
     nombre=models.CharField(max_length=100)
     capacidad=models.IntegerField()
     costo=models.IntegerField()
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar las habitaciones
 class Habitacion(models.Model):
@@ -39,6 +47,8 @@ class Habitacion(models.Model):
     piso=models.IntegerField()
     id_tipo_habitacion=models.ForeignKey(Tipo_Habitacion, on_delete=models.CASCADE)
     id_hotel=models.ForeignKey(Hoteles, on_delete=models.CASCADE)
+    def __str__(self):
+        return "N°: "+str(self.numero)
 
 #tabla para registrar las reservas
 class Reservas(models.Model):
@@ -60,12 +70,16 @@ class Areas(models.Model):
 class Cargo(models.Model):
     nombre=models.CharField(max_length=100)
     id_area=models.ForeignKey(Areas, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar los puestos abiertos con las personas a cargo
 class Puesto_Trabajo(models.Model):
     nombre=models.CharField(max_length=100)
     id_empleado=models.ForeignKey(Empleados, on_delete=models.CASCADE)
     id_cargo=models.ForeignKey(Cargo, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.nombre
 
 #tabla para registrar mas de un huesped a una reserva
 class Reserva_Huesped(models.Model):
