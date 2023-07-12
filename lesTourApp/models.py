@@ -47,7 +47,7 @@ class Tipo_Habitacion(models.Model):
     def __str__(self):
         return self.nombre
     class Meta:
-        verbose_name_plural = "Tipo_Habitacion"
+        verbose_name_plural = "Tipo_Habitaciones"
 
 #tabla para registrar las habitaciones
 class Habitacion(models.Model):
@@ -58,7 +58,7 @@ class Habitacion(models.Model):
     def __str__(self):
         return "N°: "+str(self.numero)
     class Meta:
-        verbose_name_plural = "Habitacion"
+        verbose_name_plural = "Habitaciones"
 
 #tabla para registrar las reservas
 class Reservas(models.Model):
@@ -87,7 +87,7 @@ class Cargo(models.Model):
     def __str__(self):
         return self.nombre
     class Meta:
-        verbose_name_plural = "Cargo"
+        verbose_name_plural = "Cargos"
 
 #tabla para registrar los puestos abiertos con las personas a cargo
 class Puesto_Trabajo(models.Model):
@@ -104,4 +104,4 @@ class Reserva_Huesped(models.Model):
     id_cliente=models.ForeignKey(Clientes, on_delete=models.CASCADE)
     id_reserva=models.ForeignKey(Reservas, on_delete=models.CASCADE)
     class Meta:
-        verbose_name_plural = "Reserva_Huesped"
+        verbose_name_plural = "Reserva_Huespedes"
