@@ -1,8 +1,30 @@
+<style>
+    /* Estilos para el navbar */
+    nav {
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin-right: 10px;
+        color: #333;
+        text-decoration: none;
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    nav a:hover {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
+
 <nav>
-    <a href="/">Home</a>
-    <a href="/registerCustomer">Registrar Cliente</a>
-    <a href="/registerEmployes">Registrar Trabajador</a>
-    <a href="/registerHotel">Registrar Hotel</a>
+    <a href="/" style="background-color: #ff9800;">Home</a>
+    <a href="/registerCustomer" style="background-color: #4caf50;">Registrar Cliente</a>
+    <a href="/registerEmployes" style="background-color: #2196f3;">Registrar Trabajador</a>
+    <a href="/registerHotel" style="background-color: #e91e63;">Registrar Hotel</a>
 </nav>
 {% block content %}
 {% endblock %}
