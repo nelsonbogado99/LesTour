@@ -1,8 +1,34 @@
-{% extends "layouts/navBar.html" %} {% block content %}
+{% extends "layouts/navBar.html" %}
 
-<h1>Bienvenido a la pagina de Inicio</h1>
-<p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi cum iusto nihil quos laudantium reiciendis odit illo eligendi earum porro.
-</p>
+{% block content %}
+<style>
+    /* Estilos para el contenido de la página de inicio */
+    .content-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    h1 {
+        color: #ff9800;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
+
+<div class="content-container">
+    <h1>Bienvenido a la página de Inicio</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi cum iusto nihil quos laudantium reiciendis odit illo eligendi earum porro.
+    </p>
+</div>
 {% endblock %}
