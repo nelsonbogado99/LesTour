@@ -9,6 +9,8 @@ class Empleados(models.Model):
     telefono=models.IntegerField()
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Empleados"
 
 #tabla para registrar clientes
 class Clientes(models.Model):
@@ -19,6 +21,8 @@ class Clientes(models.Model):
     telefono=models.IntegerField()
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Clientes"
 
 #tabla para registrar hoteles
 class Hoteles(models.Model):
@@ -32,6 +36,8 @@ class Hoteles(models.Model):
     habitaciones=models.IntegerField()
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Hoteles"
     
 #tabla para registrar los tipos de habitaciones
 class Tipo_Habitacion(models.Model):
@@ -40,6 +46,8 @@ class Tipo_Habitacion(models.Model):
     costo=models.IntegerField()
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Tipo_Habitacion"
 
 #tabla para registrar las habitaciones
 class Habitacion(models.Model):
@@ -49,6 +57,8 @@ class Habitacion(models.Model):
     id_hotel=models.ForeignKey(Hoteles, on_delete=models.CASCADE)
     def __str__(self):
         return "N°: "+str(self.numero)
+    class Meta:
+        verbose_name_plural = "Habitacion"
 
 #tabla para registrar las reservas
 class Reservas(models.Model):
@@ -59,12 +69,16 @@ class Reservas(models.Model):
     numero_personas=models.IntegerField
     estado=models.CharField(max_length=50)
     id_habitacion=models.ForeignKey(Habitacion, on_delete=models.CASCADE)
+    class Meta:
+        verbose_name_plural = "Reservas"
 
 #tabla para registrar las areas o departamentos dentro del hotel
 class Areas(models.Model):
     nombre=models.CharField(max_length=100)
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Areas"
 
 #tabla para registrar los cargos que se encuentran en cada area
 class Cargo(models.Model):
@@ -72,6 +86,8 @@ class Cargo(models.Model):
     id_area=models.ForeignKey(Areas, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Cargo"
 
 #tabla para registrar los puestos abiertos con las personas a cargo
 class Puesto_Trabajo(models.Model):
@@ -80,8 +96,12 @@ class Puesto_Trabajo(models.Model):
     id_cargo=models.ForeignKey(Cargo, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre
+    class Meta:
+        verbose_name_plural = "Puesto_Trabajo"
 
 #tabla para registrar mas de un huesped a una reserva
 class Reserva_Huesped(models.Model):
     id_cliente=models.ForeignKey(Clientes, on_delete=models.CASCADE)
     id_reserva=models.ForeignKey(Reservas, on_delete=models.CASCADE)
+    class Meta:
+        verbose_name_plural = "Reserva_Huesped"
