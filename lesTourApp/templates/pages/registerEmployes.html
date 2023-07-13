@@ -1,6 +1,68 @@
-{% extends "layouts/navBar.html" %} {% block content %}
+{% extends "layouts/navBar.html" %}
 
-<h1>Registrar Nuevo Trabajador</h1>
-<form action="">{{form}}</form><button>Guardar</button>
+{% block content %}
+<style>
+    /* Estilos para la página de registro de nuevo trabajador */
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    h1 {
+        color: #ff9800;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ff9800;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff5722;
+    }
+
+    .form-container label,
+    .form-container input {
+        display: block;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container input[type="submit"] {
+        background-color: #ff9800;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .form-container input[type="submit"]:hover {
+        background-color: #ff5722;
+    }
+</style>
+
+<div class="form-container">
+    <h1>Registrar Nuevo Trabajador</h1>
+    <form action="">
+        {{ form }}
+        <button type="submit">Guardar</button>
+    </form>
+</div>
 {% endblock %}
