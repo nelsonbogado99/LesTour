@@ -8,6 +8,8 @@ class CiudadesAdmin(admin.ModelAdmin):
 
 @admin.register(Empleados)
 class EmpleadosAdmin(admin.ModelAdmin):
+    list_display = ('ci_numero', 'nombre', 'email', 'direccion', 'ciudad', 'telefono')
+    list_filter = ('ciudad',)
     ordering = ['nombre']
 
 @admin.register(Clientes)
