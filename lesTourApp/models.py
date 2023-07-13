@@ -1,11 +1,20 @@
 from django.db import models
 
+# tabla para registrar las ciudades de los empeados
+class Ciudades(models.Model):
+    nombre = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nombre
+    class Meta:
+        verbose_name_plural = "Ciudades"
+
 #tabla para registrar empleados
 class Empleados(models.Model):
     ci_numero=models.IntegerField()
     nombre=models.CharField(max_length=100)
     email=models.CharField(max_length=100)
     direccion=models.CharField(max_length=100)
+    ciudad = models.ForeignKey(Ciudades, on_delete=models.CASCADE)
     telefono=models.IntegerField()
     def __str__(self):
         return self.nombre
