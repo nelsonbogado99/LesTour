@@ -1,6 +1,6 @@
 from . import models
 from django.contrib import admin
-from .models import Ciudades, Empleados, Clientes, Reservas, Hoteles, Habitacion, Tipo_Habitacion, Reserva_Huesped, Puesto_Trabajo, Cargo, Areas
+from .models import Ciudades, Clientes, Reservas, Hoteles, Habitacion, Tipo_Habitacion, Reserva_Huesped, Cargo, Areas, Empleados
 
 @admin.register(Ciudades)
 class CiudadesAdmin(admin.ModelAdmin):
@@ -8,8 +8,8 @@ class CiudadesAdmin(admin.ModelAdmin):
 
 @admin.register(Empleados)
 class EmpleadosAdmin(admin.ModelAdmin):
-    list_display = ('ci_numero', 'nombre', 'email', 'direccion', 'ciudad', 'telefono')
-    list_filter = ('ciudad',)
+    list_display = ('ci_numero', 'nombre', 'email', 'direccion', 'ciudad', 'telefono', 'cargo', 'hotel')
+    list_filter = ('ciudad', 'cargo', 'hotel')
     ordering = ['nombre']
 
 @admin.register(Clientes)
@@ -35,10 +35,6 @@ class TipoHabitacionAdmin(admin.ModelAdmin):
 @admin.register(Reserva_Huesped)
 class ReservaHuespedAdmin(admin.ModelAdmin):
     ordering = ['id_cliente']
-
-@admin.register(Puesto_Trabajo)
-class PuestoTrabajoAdmin(admin.ModelAdmin):
-    ordering = ['nombre']
 
 @admin.register(Cargo)
 class CargoAdmin(admin.ModelAdmin):
