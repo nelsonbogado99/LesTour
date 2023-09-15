@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.contrib.auth import login
+from django.db import IntegrityError
 
 
 def home(request):
-    return render(request, "home.html")
-
+    return render(request, "Home.html")
 
 def signUp(request):
     if request.method == "GET":
@@ -20,16 +20,20 @@ def signUp(request):
                     password=request.POST["password1"],
                 )
                 user.save()
-                return HttpResponse("Registro completado satisfactoriamente")
-            except:
+                login(request, user)
+                return redirect("reservation")
+            except IntegrityError:
                 return render(
                     request,
-                    "signUp.html",
+                    "SignUp.html",
                     {"form": UserCreationForm, "error": "El usuario ya existe"},
                 )
         else:
             return render(
                 request,
-                "signUp.html",
+                "SignUp.html",
                 {"form": UserCreationForm, "error": "Las contraseñas no coinciden"},
             )
+
+def reservation(request):
+    return render(request, "Reservation.html")

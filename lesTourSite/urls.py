@@ -6,5 +6,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     #path("",include("lesTourApp.urls")),
     path("", views.home, name="home"),
-    path('signUp/', views.signUp, name="signUp")
+    path('signup/', views.signUp, name="signup"),
+    path('reservation/', views.reservation, name="reservation")
 ]
