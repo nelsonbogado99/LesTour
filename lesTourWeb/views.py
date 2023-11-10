@@ -53,3 +53,17 @@ def signIn(request):
         else:
             login(request, user)
             return redirect("reservation")
+        
+
+##Parcial 2  
+
+def Hoteles(request):
+    return render(request, "hoteles.html")
+
+
+def Personal(request):
+    return render(request, "personal.html")
+
+
+def Usuario(request):
+    return render(request, "usuario.html")
